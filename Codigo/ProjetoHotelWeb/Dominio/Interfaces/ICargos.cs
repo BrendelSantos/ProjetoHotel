@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Dominio.Interfaces
 {
-    public interface ICargos : IRepositorio<Cargo>
+    public interface ICargos : IRepositorio<CargoModel>
     {
-        void Cadastrar(Cargo cargo);
-        void Atualizar(Cargo cargo);
-        void Remover(Cargo cargo);
-        Cargo ResultadoUnico(int idCargo);
+        int Cadastrar(CargoModel cargo);
+        void Atualizar(CargoModel cargo);
+        void Remover(CargoModel cargo);
+        CargoModel ResultadoUnico(int idCargo);
     }
 }

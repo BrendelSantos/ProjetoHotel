@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Dominio.Interfaces
 {
-    public interface IServicos : IRepositorio<Servico>
+    public interface IServicos : IRepositorio<ServicoModel>
     {
-        void Cadastrar(Servico servico);
-        void Atualizar(Servico servico);
-        void Remover(Servico servico);
-        Servico ResultadoUnico(int idServico);
+        void Cadastrar(ServicoModel servico);
+        void Atualizar(ServicoModel servico);
+        void Remover(ServicoModel servico);
+        ServicoModel ResultadoUnico(int idServico);
     }
 }

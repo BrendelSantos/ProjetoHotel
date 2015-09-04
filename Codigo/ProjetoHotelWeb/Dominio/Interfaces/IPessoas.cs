@@ -7,15 +7,27 @@ using Dominio.Classes;
 using Dominio.Interfaces;
 
 
+
 namespace Dominio.Interfaces
 {
-    public interface IPessoas : IRepositorio<Pessoa>
+    public interface IPessoas : IRepositorio<PessoaModel>
     {
-        void Cadastrar(Pessoa pessoa);
-        void Atualizar(Pessoa pessoa);
-        void Remover(Pessoa pessoa);
-        Pessoa ResultadoUnico(int idPessoa);
-        ICollection<Pessoa> ListarFuncionario();
-        Pessoa ResultadoUnicoFuncionario(int idPessoa);
+        void Cadastrar(PessoaModel pessoa);
+        void Atualizar(PessoaModel pessoa);
+        void Remover(PessoaModel pessoa);
+        PessoaModel ResultadoUnico(int idPessoa);
+        ICollection<PessoaModel> ListarFuncionario();
+        ICollection<PessoaModel> ListarPorCpfCnpj(string cpfCnpj);
+        ICollection<PessoaModel> ListarPorNome(string nome);
+        ICollection<PessoaModel> ListarPorTelefone(string telefone);
+
+        ICollection<PessoaModel> ListarFuncionarioPorNome(string nome);
+        ICollection<PessoaModel> ListarFuncionarioPorCpfCnpj(string cpfCnpj);
+        ICollection<PessoaModel> ListarFuncionarioPorTelefone(string telefone);
+
+
+        PessoaModel ResultadoUnicoFuncionario(int idPessoa);
+
+
     }
 }
