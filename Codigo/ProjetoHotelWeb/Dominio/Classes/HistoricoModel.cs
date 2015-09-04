@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace Dominio.Classes
 {
-   public class Servico
+   public class HistoricoModel
     {
-       public int idServico { get; set; }
+       public int idHistorico { get; set; }
+       public int idUsuario { get; set; }
        public string descricao { get; set; }
        public string observacao { get; set; }
-       public decimal valor { get; set; }
-       public bool ativo { get; set; }
+       public DateTime dataCadastro { get; set; }
 
-       public virtual List<ControleServico> ControleServico { get; set; }
+       public virtual PessoaModel Usuario { get; set; }
+
     }
 }

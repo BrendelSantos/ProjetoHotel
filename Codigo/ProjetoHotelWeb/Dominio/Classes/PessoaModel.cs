@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dominio.Classes
 {
-    public class Pessoa
+    public class PessoaModel
     {
        
         public int idPessoa { get; set; }
@@ -14,7 +14,7 @@ namespace Dominio.Classes
         public string nome { get; set; }
         public string cpfCnpj { get; set; }
         public string rg { get; set; }
-        public DateTime dataNascimento { get; set; }
+        public DateTime? dataNascimento { get; set; }
         public string estadoCivil { get; set; }
         public string sexo { get; set; }
         public string telefoneFixo { get; set; }
@@ -27,16 +27,16 @@ namespace Dominio.Classes
         public string bairro { get; set; }
         public string rua { get; set; }
         public string complemento { get; set; }
-        public int numero { get; set; }
+        public int? numero { get; set; }
         public string cep { get; set; }
         public DateTime dataCadastro { get; set; }
         public bool ativo { get; set; }
         public bool isFuncionario { get; set; }
 
-        public virtual Cargo Cargo { get; set; }
-        public virtual List<ControleCliente> ControleCliente{ get; set; }
-        public virtual List<Usuario> Usuario { get; set; }
-        public virtual List<ControleServico> ControleServico { get; set; }
+        public virtual CargoModel Cargo { get; set; }
+        public virtual List<ControleClienteModel> ControleCliente{ get; set; }
+        public virtual List<UsuarioModel> Usuario { get; set; }
+        public virtual List<ControleServicoModel> ControleServico { get; set; }
 
         
        
