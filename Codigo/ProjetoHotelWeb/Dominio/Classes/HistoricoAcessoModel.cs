@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dominio.Classes
 {
-   public class HistoricoAcesso
+   public class HistoricoAcessoModel
     {
         public int idHistoricoAcesso { get; set; }
         public int idUsuario { get; set; }
@@ -14,7 +14,7 @@ namespace Dominio.Classes
         public string observacao { get; set; }
         public DateTime dataCadastro { get; set; }
 
-        public virtual Pessoa Usuario { get; set; }
-        public virtual PacoteHospedagem PacoteHospedagem { get; set; }
+        public virtual PessoaModel Usuario { get; set; }
+        public virtual PacoteHospedagemModel PacoteHospedagem { get; set; }
     }
 }
