@@ -20,8 +20,8 @@ namespace ProjectHotelWebTest
         public void CadastrarTeste()
         {
             int idServicoExpected = 0;
-            Servicos servicos = new Servicos();
-            Servico servicoExpected = new Servico();
+            GerenciadorServicos servicos = new GerenciadorServicos();
+            ServicoModel servicoExpected = new ServicoModel();
 
             servicoExpected.descricao = "Lavanderia";
             servicoExpected.observacao = "Observação";
@@ -29,9 +29,9 @@ namespace ProjectHotelWebTest
 
             idServicoExpected = servicos.Cadastrar(servicoExpected);
 
-            Servico servicoCadastrado = servicos.ResultadoUnico(idServicoExpected);
+            ServicoModel servicoCadastrado = servicos.ResultadoUnico(idServicoExpected);
             Assert.IsNotNull(servicoCadastrado);
-            Assert.IsInstanceOfType(servicoCadastrado, typeof(Servico));
+            Assert.IsInstanceOfType(servicoCadastrado, typeof(ServicoModel));
             Assert.AreEqual(servicoExpected, servicoCadastrado);
 
         }
@@ -40,14 +40,14 @@ namespace ProjectHotelWebTest
         public void AtualizarTeste()
         {
             int idServico = 1;
-            Servicos servicos = new Servicos();
-            Servico servico = servicos.ResultadoUnico(idServico);
+            GerenciadorServicos servicos = new GerenciadorServicos();
+            ServicoModel servico = servicos.ResultadoUnico(idServico);
             Assert.IsNotNull(servico);
             servico.descricao = "Lavanderia Refinada";
             servico.valor = 123;
             servicos.Atualizar(servico);
 
-            Servico servicoAtualizado = servicos.ResultadoUnico(idServico);
+            ServicoModel servicoAtualizado = servicos.ResultadoUnico(idServico);
             Assert.AreEqual(servico, servicoAtualizado);
         }
     }

@@ -39,15 +39,15 @@ namespace ProjectHotelWebTest
         }
 
         #region Additional test attributes
-        ControleServicos gControleServicos = new ControleServicos();
-        Hospedagens gHospedagens = new Hospedagens();
-        Servicos gServicos = new Servicos();
-        Pessoas gPessoas = new Pessoas();
+        GerenciadorControleServicos gControleServicos = new GerenciadorControleServicos();
+        GerenciadorHospedagens gHospedagens = new GerenciadorHospedagens();
+        GerenciadorServicos gServicos = new GerenciadorServicos();
+        GerenciadorPessoas gPessoas = new GerenciadorPessoas();
 
-        ControleServico controleServico;
-        Hospedagem hospedagem;
-        Servico servico;
-        Pessoa funcionario;
+        ControleServicoModel controleServico;
+        HospedagemModel hospedagem;
+        ServicoModel servico;
+        PessoaModel funcionario;
 
 
         #endregion
@@ -55,10 +55,10 @@ namespace ProjectHotelWebTest
         [TestMethod]
         public void CadastrarControleServicoValidoTest()
         {
-            hospedagem = new Hospedagem();
-            funcionario = new Pessoa();
-            servico = new Servico();
-            controleServico = new ControleServico();
+            hospedagem = new HospedagemModel();
+            funcionario = new PessoaModel();
+            servico = new ServicoModel();
+            controleServico = new ControleServicoModel();
             hospedagem = gHospedagens.ResultadoUnico(1);            
             servico = gServicos.ResultadoUnico(1);            
             funcionario = gPessoas.ResultadoUnicoFuncionario(2);
@@ -79,10 +79,10 @@ namespace ProjectHotelWebTest
         [TestMethod]
         public void AtualizarControleServicoValidoTest()
         {
-            hospedagem = new Hospedagem();
-            funcionario = new Pessoa();
-            servico = new Servico();
-            controleServico = new ControleServico();
+            hospedagem = new HospedagemModel();
+            funcionario = new PessoaModel();
+            servico = new ServicoModel();
+            controleServico = new ControleServicoModel();
             hospedagem = gHospedagens.ResultadoUnico(1);
             servico = gServicos.ResultadoUnico(1);
             funcionario = gPessoas.ResultadoUnicoFuncionario(2);

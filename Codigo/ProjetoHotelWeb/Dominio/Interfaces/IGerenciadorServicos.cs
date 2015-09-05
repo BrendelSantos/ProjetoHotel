@@ -10,7 +10,7 @@ namespace Dominio.Interfaces
 {
     public interface IGerenciadorServicos : IRepositorio<ServicoModel>
     {
-        void Cadastrar(ServicoModel servico);
+        int Cadastrar(ServicoModel servico);
         void Atualizar(ServicoModel servico);
         void Remover(ServicoModel servico);
         ServicoModel ResultadoUnico(int idServico);
