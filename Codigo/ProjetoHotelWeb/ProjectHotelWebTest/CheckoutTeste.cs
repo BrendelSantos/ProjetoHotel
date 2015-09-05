@@ -10,12 +10,12 @@ namespace ProjectHotelWebTest
     {
 
         private TestContext testContextInstance;
-        private PacoteHospedagens gPacoteHospedagem { get; set; }
-        private PacoteHospedagem pacoteHospedagem { get; set; }
-        private Quartos gQuartos { get; set; }
-        private Quarto quarto { get; set; }
-        private Hospedagens gHospedagens { get; set; }
-        private Hospedagem hospedagem { get; set; }
+        private GerenciadorPacoteHospedagens gPacoteHospedagem { get; set; }
+        private PacoteHospedagemModel pacoteHospedagem { get; set; }
+        private GerenciadorQuartos gQuartos { get; set; }
+        private QuartoModel quarto { get; set; }
+        private GerenciadorHospedagens gHospedagens { get; set; }
+        private HospedagemModel hospedagem { get; set; }
 
         public TestContext TestContext
         {
@@ -28,22 +28,23 @@ namespace ProjectHotelWebTest
         {
             int idHospedagem = 0;
             int idQuarto = 0;
-            PacoteHospedagens gPacoteHospedagem = new PacoteHospedagens();
-            Quartos gQuartos = new Quartos();
-            Hospedagens gHospedagens = new Hospedagens();
+            GerenciadorPacoteHospedagens gPacoteHospedagem = new GerenciadorPacoteHospedagens();
+            GerenciadorQuartos gQuartos = new GerenciadorQuartos();
+            GerenciadorHospedagens gHospedagens = new GerenciadorHospedagens();
+
             this.gPacoteHospedagem = gPacoteHospedagem;
             this.gQuartos = gQuartos;
             this.gHospedagens = gHospedagens;
 
-            PacoteHospedagem pacoteHospedagem = gPacoteHospedagem.ResultadoUnico(4);
+            PacoteHospedagemModel pacoteHospedagem = gPacoteHospedagem.ResultadoUnico(4);
             this.pacoteHospedagem = pacoteHospedagem;
 
             idHospedagem = pacoteHospedagem.Hospedagem[0].idHospedagem;
-            Hospedagem hospedagem = gHospedagens.ResultadoUnico(idHospedagem);
+            HospedagemModel hospedagem = gHospedagens.ResultadoUnico(idHospedagem);
             this.hospedagem = hospedagem;
 
             idQuarto = hospedagem.idQuarto;
-            Quarto quarto = gQuartos.ResultadoUnico(idQuarto);
+            QuartoModel quarto = gQuartos.ResultadoUnico(idQuarto);
             this.quarto = quarto;
 
         }
@@ -102,9 +103,9 @@ namespace ProjectHotelWebTest
             gHospedagens.Atualizar(hospedagem);
             gQuartos.Atualizar(quarto);
 
-            PacoteHospedagem pacoteHospedagemAtualizado = gPacoteHospedagem.ResultadoUnico(pacoteHospedagem.idPacoteHospedagem);
-            Hospedagem hospedagemAtualizado = gHospedagens.ResultadoUnico(hospedagem.idHospedagem);
-            Quarto quartoAtualizado = gQuartos.ResultadoUnico(quarto.idQuarto);
+            PacoteHospedagemModel pacoteHospedagemAtualizado = gPacoteHospedagem.ResultadoUnico(pacoteHospedagem.idPacoteHospedagem);
+            HospedagemModel hospedagemAtualizado = gHospedagens.ResultadoUnico(hospedagem.idHospedagem);
+            QuartoModel quartoAtualizado = gQuartos.ResultadoUnico(quarto.idQuarto);
 
             Assert.AreEqual(pacoteHospedagemAtualizado.ativo, true);
             Assert.AreEqual(pacoteHospedagemAtualizado.ControleCliente, pacoteHospedagem.ControleCliente);
@@ -149,29 +150,5 @@ namespace ProjectHotelWebTest
             Assert.AreEqual(quartoAtualizado.TipoQuarto, quarto.TipoQuarto);
 
         }
-
-        /*
-        public void CheckoutInvalido()
-        {
-            
-            PacoteHospedagem pacoteHospedagemBackup = pacoteHospedagem;
-            Hospedagem hospedagemBackup = hospedagem;
-            Quarto quartoBackup = quarto;
-
-            pacoteHospedagem.ativo = pacoteHospedagem.ativo;
-            pacoteHospedagem.ControleCliente = pacoteHospedagem.ControleCliente;
-            pacoteHospedagem.dataCadastro = pacoteHospedagem.dataCadastro;
-            pacoteHospedagem.dataEntrada = pacoteHospedagem.dataEntrada;
-            pacoteHospedagem.dataLiberacao = pacoteHospedagem.dataLiberacao;
-            pacoteHospedagem.dataSaida = pacoteHospedagem.dataSaida;
-            pacoteHospedagem.HistoricoAcesso = pacoteHospedagem.HistoricoAcesso;
-            pacoteHospedagem.Hospedagem = pacoteHospedagem.Hospedagem;
-            pacoteHospedagem.idPacoteHospedagem = -1;
-            pacoteHospedagem.observacao = 
-
-
-
-        }
-         * */
-    }
+   }
 }
